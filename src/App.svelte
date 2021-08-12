@@ -1,30 +1,43 @@
 <script lang="ts">
-	export let name: string;
+  import { state } from "./state/state";
+  import { reduce } from "./state/reducers";
+
+  import Stats from "./components/stats/Stats.svelte";
+  import Controls from "./components/control/Controls.svelte";
+  import Farm from "./components/farm/Farm.svelte";
+  import Period from "./components/period/Period.svelte";
+
+  const tick = () => {
+    $state = reduce($state);
+    setTimeout(tick, 500);
+  };
+
+  tick();
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+  <Controls />
+
+  <div>
+    <Period />
+  </div>
+
+  <Farm />
+
+  <Stats />
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+  main {
+    text-align: center;
+    padding: 1em;
+    max-width: 240px;
+    margin: 0 auto;
+  }
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  @media (min-width: 640px) {
+    main {
+      max-width: none;
+    }
+  }
 </style>

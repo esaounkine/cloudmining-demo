@@ -1,0 +1,21 @@
+<script lang="ts">
+  import { formatTime } from "../../shared/util";
+  import { state } from "../../state/state";
+</script>
+
+<h2>Stats</h2>
+<p>Purchased Asics: {$state.purchasedAsics}</p>
+<p>Vested Asics: {$state.vestedAsics}</p>
+<p>Period Length: {$state.periodLength}</p>
+<p>Start Time: {$state.startTime}</p>
+<p>Time Elapsed: {formatTime($state.timeElapsed)}</p>
+<p>Total Asics: {$state.totalAsics}</p>
+
+<style>
+  h2 {
+    color: #ff3e00;
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: 100;
+  }
+</style>
