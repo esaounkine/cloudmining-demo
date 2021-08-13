@@ -10,4 +10,5 @@ interface State {
   timeElapsed: number;
   periods: number;
   periodLength: number;
+  lastVest: Date;
 }

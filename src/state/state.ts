@@ -7,7 +7,8 @@ export const state: Writable<State> = writable({
     total: 1,
   },
   startTime: new Date(),
+  lastVest: new Date(),
   timeElapsed: 0,
   periods: 0,
-  periodLength: 5000,
+  periodLength: 10000,
 });

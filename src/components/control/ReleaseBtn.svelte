@@ -1,16 +1,13 @@
 <script lang="ts">
-  import { updateTotalAsics } from "../../state/reducers";
-
   import { state } from "../../state/state";
 
-  const isDecreaseAllowed = () => {
-    return $state.thh.purchased > 0;
+  const isDecreaseAllowed = (by: number) => {
+    return $state.thh.purchased >= by;
   };
   
   const decrease = () => {
-    $state.thh.purchased = isDecreaseAllowed() ? $state.thh.purchased - 1 : 0;
-    $state = updateTotalAsics($state);
+    $state.thh.purchased = isDecreaseAllowed(1000) ? $state.thh.purchased - 1000 : 0;
   };
 </script>
 
-<button on:click={decrease} disabled={!isDecreaseAllowed()}>-1000</button>
+<button on:click={decrease} disabled={!isDecreaseAllowed(1000)}>-1000</button>

@@ -1,18 +1,14 @@
-export const VESTING_PERIOD = 10000;
-
-export const updateTotalAsics = (state: State) => {
-  state.thh.total = state.thh.purchased + state.thh.vested;
-  return state;
-};
-
-const reinvestToBuyAsics = (state: State) => {
-  state.periods = Math.round(state.timeElapsed / VESTING_PERIOD);
+const vest = (state: State) => {
+  state.periods = Math.round(state.timeElapsed / state.periodLength);
   state.thh.vested = state.periods;
-  updateTotalAsics(state);
+  state.lastVest = new Date();
 };
 
 export const reduce = (state: State): State => {
-  reinvestToBuyAsics(state);
   state.timeElapsed = Date.now() - state.startTime.getTime();
+  const timeSinceLastVest = Date.now() - state.lastVest.getTime();
+  if(timeSinceLastVest >= state.periodLength) {
+    vest(state);
+  }
   return state;
 };

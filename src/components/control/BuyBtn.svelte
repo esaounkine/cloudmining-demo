@@ -1,11 +1,8 @@
 <script lang="ts">
-import { updateTotalAsics } from "../../state/reducers";
-
   import { state } from "../../state/state";
 
   const increase = () => {
-    $state.thh.purchased += 1;
-    $state = updateTotalAsics($state);
+    $state.thh.purchased += 1000;
   };
 </script>
 

@@ -1,9 +1,7 @@
 <script lang="ts">
-import { VESTING_PERIOD } from "../../state/reducers";
-
   import { state } from "../../state/state";
 
-  $: progress = Math.round(($state.timeElapsed % VESTING_PERIOD) / VESTING_PERIOD * 100);
+  $: progress = Math.round(($state.timeElapsed % $state.periodLength) / $state.periodLength * 100);
 </script>
 
 <!-- <pie class={} /> -->
