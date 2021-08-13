@@ -1,13 +1,13 @@
 export const VESTING_PERIOD = 10000;
 
 export const updateTotalAsics = (state: State) => {
-  state.totalAsics = state.purchasedAsics + state.vestedAsics;
+  state.thh.total = state.thh.purchased + state.thh.vested;
   return state;
 };
 
 const reinvestToBuyAsics = (state: State) => {
   state.periods = Math.round(state.timeElapsed / VESTING_PERIOD);
-  state.vestedAsics = state.periods;
+  state.thh.vested = state.periods;
   updateTotalAsics(state);
 };
 

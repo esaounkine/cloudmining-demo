@@ -4,7 +4,7 @@
 
 <div class="farm purchased">
   <ul>
-    {#each Array($state.purchasedAsics) as _, i}
+    {#each Array($state.thh.purchased) as _, i}
       <li>
         <img src="img/asic-purchased.png" alt="Purchased" />
       </li>
@@ -14,7 +14,7 @@
 
 <div class="farm vested">
   <ul>
-    {#each Array($state.vestedAsics) as _, i}
+    {#each Array($state.thh.vested) as _, i}
       <li>
         <img src="img/asic-vested.png" alt="Vested" />
       </li>

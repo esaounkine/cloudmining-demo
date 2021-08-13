@@ -4,13 +4,13 @@
   import { state } from "../../state/state";
 
   const isDecreaseAllowed = () => {
-    return $state.purchasedAsics > 0;
+    return $state.thh.purchased > 0;
   };
   
   const decrease = () => {
-    $state.purchasedAsics = isDecreaseAllowed() ? $state.purchasedAsics - 1 : 0;
+    $state.thh.purchased = isDecreaseAllowed() ? $state.thh.purchased - 1 : 0;
     $state = updateTotalAsics($state);
   };
 </script>
 
-<button on:click={decrease} disabled={!isDecreaseAllowed()}>-</button>
+<button on:click={decrease} disabled={!isDecreaseAllowed()}>-1000</button>

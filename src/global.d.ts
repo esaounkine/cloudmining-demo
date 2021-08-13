@@ -1,9 +1,11 @@
 /// <reference types="svelte" />
 
 interface State {
-  purchasedAsics: number;
-  vestedAsics: number;
-  totalAsics: number;
+  thh: {
+    purchased: number;
+    vested: number;
+    total: number;
+  },
   startTime: Date;
   timeElapsed: number;
   periods: number;

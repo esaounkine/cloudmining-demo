@@ -4,12 +4,12 @@
 </script>
 
 <h2>Stats</h2>
-<p>Purchased Asics: {$state.purchasedAsics}</p>
-<p>Vested Asics: {$state.vestedAsics}</p>
+<p>Purchased Asics: {$state.thh.purchased}</p>
+<p>Vested Asics: {$state.thh.vested}</p>
+<p>Total Asics: {$state.thh.total}</p>
 <p>Period Length: {$state.periodLength}</p>
 <p>Start Time: {$state.startTime}</p>
 <p>Time Elapsed: {formatTime($state.timeElapsed)}</p>
-<p>Total Asics: {$state.totalAsics}</p>
 
 <style>
   h2 {

@@ -9,7 +9,7 @@
 
   const tick = () => {
     $state = reduce($state);
-    setTimeout(tick, 500);
+    setTimeout(tick, 100);
   };
 
   tick();
@@ -18,11 +18,11 @@
 <main>
   <Controls />
 
+  <Farm />
+
   <div>
     <Period />
   </div>
-
-  <Farm />
 
   <Stats />
 </main>
