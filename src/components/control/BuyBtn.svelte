@@ -1,9 +1,11 @@
 <script lang="ts">
   import { state } from "../../state/state";
 
+  const purchaseAmount = 100;
+
   const increase = () => {
-    $state.hashRate.purchased += 1000;
+    $state.hashRate.purchased += purchaseAmount;
   };
 </script>
 
-<button on:click={increase}>+1000</button>
+<button on:click={increase}>+{purchaseAmount}</button>

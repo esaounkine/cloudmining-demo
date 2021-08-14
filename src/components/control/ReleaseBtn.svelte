@@ -1,13 +1,19 @@
 <script lang="ts">
   import { state } from "../../state/state";
 
+  const purchaseAmount = 100;
+
   const isDecreaseAllowed = (by: number) => {
     return $state.hashRate.purchased >= by;
   };
-  
-  const decrease = () => {
-    $state.hashRate.purchased = isDecreaseAllowed(1000) ? $state.hashRate.purchased - 1000 : 0;
+
+  const decrease = (by: number) => {
+    if (isDecreaseAllowed(by)) {
+      $state.hashRate.purchased = $state.hashRate.purchased - by;
+    }
   };
 </script>
 
-<button on:click={decrease} disabled={!isDecreaseAllowed(1000)}>-1000</button>
+<button on:click={() => decrease(purchaseAmount)}>
+  -{purchaseAmount}
+</button>
