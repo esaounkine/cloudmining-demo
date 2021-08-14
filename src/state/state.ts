@@ -1,13 +1,16 @@
 import { Writable, writable } from "svelte/store";
 
 export const config: Config = {
-  monthHours: 24 * 30,
   periodLength: 10000,
-  hashPerBlock: 1000000,
-  blockReward: 6.75,
-  prices: {
-    btc: 47000,
-  },
+  secondsInMonth: 60 * 60 * 24 * 30,
+  kWtCostUsd: 0.05,
+  btcPriceUsd: 47000, // TODO fetch live BTC price
+  rewardPerBlockBtc: 6.25, // TODO use a coefficient to predict reward adjustments
+  // number is based on the assumption that a 100m TH/s pool requires 600 seconds to produce a block
+  computationsPerBlockTh: 60000000000, // TODO replace with a more accurate adjusted number of computations required on average
+  unitCostUsd: 50, // TODO clarify
+  reinvestShare: 0.5, // reinvest half of all earned money
+  hashRatePerUnitThs: 1000,
 };
 
 export const state: Writable<State> = writable({

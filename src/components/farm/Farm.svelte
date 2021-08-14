@@ -1,10 +1,8 @@
 <script lang="ts">
-  import { state } from "../../state/state";
-
-  const HASH_PER_UNIT = 1000;
+  import { state, config } from "../../state/state";
 
   const hashRateToUnits = (thh: number): number => {
-    return Math.floor(thh / HASH_PER_UNIT);
+    return Math.floor(thh / config.hashRatePerUnitThs);
   };
 
   $: asics = {

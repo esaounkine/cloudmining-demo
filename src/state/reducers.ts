@@ -1,16 +1,7 @@
 import { config } from "./state";
 
-const secondsInMonth = 60 * 60 * 24 * 30;
-const kWtCostUsd = 0.05;
-const btcPriceUsd = 47000; // TODO fetch live BTC price
-const rewardPerBlockBtc = 6.25; // TODO use a coefficient to predict reward adjustments
-// number is based on the assumption that a 100m TH/s pool requires 600 seconds to produce a block
-const computationsPerBlockTh = 60000000000; // TODO replace with a more accurate adjusted number of computations required on average
-const unitCostUsd = 50; // TODO clarify
-const reinvestShare = 0.5; // reinvest half of all earned money
-
 const calculateMonthlyTh = (hashRate: number): number => {
-  return hashRate * secondsInMonth;
+  return hashRate * config.secondsInMonth;
 };
 
 const vest = (state: State) => {
@@ -20,14 +11,14 @@ const vest = (state: State) => {
   const thProduced = calculateMonthlyTh(
     state.hashRate.purchased + state.hashRate.vested
     );
-    const blocksGuessed = thProduced / computationsPerBlockTh;
-    const btcRewarded = blocksGuessed * rewardPerBlockBtc;
-    const usdEarned = Math.round(btcRewarded * btcPriceUsd);
+    const blocksGuessed = thProduced / config.computationsPerBlockTh;
+    const btcRewarded = blocksGuessed * config.rewardPerBlockBtc;
+    const usdEarned = Math.round(btcRewarded * config.btcPriceUsd);
     
-    const reinvestAmountUsd = usdEarned * reinvestShare;
+    const reinvestAmountUsd = usdEarned * config.reinvestShare;
     const keepAmountUsd = usdEarned - reinvestAmountUsd;
     
-    state.hashRate.vested += reinvestAmountUsd / unitCostUsd;
+    state.hashRate.vested += reinvestAmountUsd / config.unitCostUsd;
 
     state.output.lastMonth = {
       thProduced,

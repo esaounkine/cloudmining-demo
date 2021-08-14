@@ -12,7 +12,7 @@ interface State {
     purchased: number;
     vested: number;
     total: number;
-  },
+  };
   startTime: Date;
   timeElapsed: number;
   periods: number;
@@ -24,11 +24,13 @@ interface State {
 }
 
 interface Config {
-  monthHours: number;
   periodLength: number;
-  hashPerBlock: number;
-  blockReward: number;
-  prices: {
-    btc: number;
-  };
+  secondsInMonth: number;
+  kWtCostUsd: number;
+  btcPriceUsd: number;
+  rewardPerBlockBtc: number;
+  computationsPerBlockTh: number;
+  unitCostUsd: number;
+  reinvestShare: number;
+  hashRatePerUnitThs: number;
 }
