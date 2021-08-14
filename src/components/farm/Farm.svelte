@@ -1,15 +1,15 @@
 <script lang="ts">
   import { state } from "../../state/state";
 
-  const THH_PER_ASIC = 1000;
+  const HASH_PER_UNIT = 1000;
 
-  const thhToAsics = (thh: number): number => {
-    return Math.floor(thh / THH_PER_ASIC);
+  const hashRateToUnits = (thh: number): number => {
+    return Math.floor(thh / HASH_PER_UNIT);
   };
 
   $: asics = {
-    purchased: thhToAsics($state.thh.purchased),
-    vested: thhToAsics($state.thh.vested),
+    purchased: hashRateToUnits($state.hashRate.purchased),
+    vested: hashRateToUnits($state.hashRate.vested),
   };
 </script>
 

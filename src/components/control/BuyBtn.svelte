@@ -2,7 +2,7 @@
   import { state } from "../../state/state";
 
   const increase = () => {
-    $state.thh.purchased += 1000;
+    $state.hashRate.purchased += 1000;
   };
 </script>
 

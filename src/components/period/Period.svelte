@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { state } from "../../state/state";
+  import { state, config } from "../../state/state";
 
-  $: progress = Math.round(($state.timeElapsed % $state.periodLength) / $state.periodLength * 100);
+  $: progress = Math.round(($state.timeElapsed % config.periodLength) / config.periodLength * 100);
 </script>
 
 <!-- <pie class={} /> -->

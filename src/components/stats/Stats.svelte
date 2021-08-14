@@ -4,12 +4,7 @@
 </script>
 
 <h2>Stats</h2>
-<p>Purchased TH/h: {$state.thh.purchased}</p>
-<p>Vested TH/h: {$state.thh.vested}</p>
-<p>Total TH/h: {$state.thh.purchased + $state.thh.vested}</p>
-<p>Period Length: {$state.periodLength}</p>
-<p>Start Time: {$state.startTime}</p>
-<p>Time Elapsed: {formatTime($state.timeElapsed, $state.periodLength)}</p>
+<pre>{JSON.stringify($state, "", 2)}</pre>
 
 <style>
   h2 {
