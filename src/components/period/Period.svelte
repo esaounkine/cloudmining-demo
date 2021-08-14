@@ -7,7 +7,7 @@
 <!-- <pie class={} /> -->
 <div class="outer">
     <div class="inner" style="width: {progress}%;">
-        <div class="progress">{progress}%</div>
+        <div class="progress">Month {$state.periods + 1}</div>
     </div>
 </div>
 
@@ -18,6 +18,7 @@
         position: relative;
         font-size: 9px;
         text-align: center;
+        margin: 20px 0;
     }
     .inner {
         position: absolute;

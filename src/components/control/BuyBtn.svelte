@@ -9,3 +9,9 @@
 </script>
 
 <button on:click={increase}>+{purchaseAmount}</button>
+
+<style>
+  button {
+    margin-top: 5px;
+  }
+</style>

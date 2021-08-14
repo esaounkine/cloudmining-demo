@@ -6,6 +6,7 @@
   import Controls from "./components/control/Controls.svelte";
   import Farm from "./components/farm/Farm.svelte";
   import Period from "./components/period/Period.svelte";
+  import Smartphone from "./components/smartphone/Smartphone.svelte";
 
   const tick = () => {
     $state = reduce($state);
@@ -16,13 +17,13 @@
 </script>
 
 <main>
-  <Controls />
+  <Smartphone width={100} height={177}>
+    <Controls />
+  </Smartphone>
+
+  <Period />
 
   <Farm />
-
-  <div>
-    <Period />
-  </div>
 
   <Stats />
 </main>

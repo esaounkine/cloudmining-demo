@@ -17,3 +17,10 @@
 <button on:click={() => decrease(purchaseAmount)}>
   -{purchaseAmount}
 </button>
+
+<style>
+  button {
+    position: absolute;
+    bottom: 0;
+  }
+</style>
