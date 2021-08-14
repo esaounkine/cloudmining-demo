@@ -1,8 +1,14 @@
 <script lang="ts">
   import { state, config } from "../../state/state";
+  import Rack from "./Rack.svelte";
 
-  const hashRateToUnits = (thh: number): number => {
-    return Math.floor(thh / config.hashRatePerUnitThs);
+  const hashRateToUnits = (
+    thh: number
+  ): { units: number; remainder: number } => {
+    return {
+      units: Math.floor(thh / config.hashRatePerUnitThs),
+      remainder: Math.floor(thh % config.hashRatePerUnitThs),
+    };
   };
 
   $: asics = {
@@ -11,49 +17,14 @@
   };
 </script>
 
-<div class="farm purchased">
-  <ul>
-    {#if asics.purchased === 0}
-      No ASICs
-    {:else}
-      {#each Array(asics.purchased) as _, i}
-        <li>
-          <img src="img/asic-purchased.png" alt="Purchased" />
-        </li>
-      {/each}
-    {/if}
-  </ul>
-</div>
+<Rack
+  machineType="purchased"
+  units={asics.purchased.units}
+  totalHashRate={$state.hashRate.purchased}
+/>
 
-<div class="farm vested">
-  <ul>
-    {#if asics.vested === 0}
-      No ASICs
-    {:else}
-      {#each Array(asics.vested) as _, i}
-        <li>
-          <img src="img/asic-vested.png" alt="Vested" />
-        </li>
-      {/each}
-    {/if}
-  </ul>
-</div>
-
-<style>
-  .purchased {
-    color: green;
-  }
-  .vested {
-    color: blue;
-  }
-  .farm img {
-    height: 40px;
-  }
-  ul > li {
-    display: inline-block;
-    /* You can also add some margins here to make it look prettier */
-    zoom: 1;
-    *display: inline;
-    /* this fix is needed for IE7- */
-  }
-</style>
+<Rack
+  machineType="vested"
+  units={asics.vested.units}
+  totalHashRate={$state.hashRate.vested}
+/>
