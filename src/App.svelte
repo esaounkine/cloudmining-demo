@@ -8,6 +8,7 @@
   import Period from "./components/period/Period.svelte";
   import Smartphone from "./components/smartphone/Smartphone.svelte";
   import Bank from "./components/bank/Bank.svelte";
+  import Config from "./components/stats/Config.svelte";
 
   const tick = () => {
     $state = reduce($state, $config);
@@ -30,7 +31,11 @@
 
   <Farm />
 
-  <Stats />
+  <Config />
+  
+  {#if $state.debug}
+    <Stats />
+  {/if}
 </main>
 
 <style>
