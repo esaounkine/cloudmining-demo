@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { state } from "./state/state";
+  import { config, state } from "./state/state";
   import { reduce } from "./state/reducers";
 
   import Stats from "./components/stats/Stats.svelte";
@@ -10,7 +10,7 @@
   import Bank from "./components/bank/Bank.svelte";
 
   const tick = () => {
-    $state = reduce($state);
+    $state = reduce($state, $config);
     setTimeout(tick, 1000);
   };
 

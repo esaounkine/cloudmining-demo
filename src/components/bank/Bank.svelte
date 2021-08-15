@@ -6,7 +6,7 @@
   <div class="oneline">
     <div class="label">Spent:</div>
     <div class="negative">
-      -${$state.hashRate.purchased * config.costPerThUsd}
+      -${$state.hashRate.purchased * $config.costPerThUsd}
     </div>
   </div>
   <div class="oneline">

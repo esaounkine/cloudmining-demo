@@ -29,7 +29,7 @@ interface Config {
   kWtCostUsd: number;
   btcPriceUsd: number;
   rewardPerBlockBtc: number;
-  computationsPerBlockTh: number;
+  computationsPerBlockPh: number;
   costPerThUsd: number;
   reinvestShare: number;
   hashRatePerUnitThs: number;

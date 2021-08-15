@@ -2,7 +2,7 @@
   import { state, config } from "../../state/state";
 
   $: progress = Math.round(
-    (($state.timeElapsed % config.periodLength) / config.periodLength) * 100
+    (($state.timeElapsed % $config.periodLength) / $config.periodLength) * 100
   );
 </script>
 

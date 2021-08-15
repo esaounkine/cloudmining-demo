@@ -10,26 +10,26 @@
 
 <div>
   <span class="label">BTC price:</span>
-  ${config.btcPriceUsd}
+  ${$config.btcPriceUsd}
   <span class="note">this number will change randomly over time</span>
 </div>
 <div>
   <span class="label">Computations per block:</span>
-  {config.computationsPerBlockTh} TH
+  {$config.computationsPerBlockPh} PH
   <span class="note">this number with increase over time</span>
 </div>
 <div>
   <span class="label">Reward per block:</span>
-  {config.rewardPerBlockBtc} BTC
+  {$config.rewardPerBlockBtc} BTC
   <span class="note">this number will decrease over time</span>
 </div>
 <div>
   <span class="label">Reinvest into the infrastructure:</span>
-  {config.reinvestShare}
+  {$config.reinvestShare}
 </div>
 <div>
   <span class="label">Month duration:</span>
-  {config.periodLength / 1000} s
+  {$config.periodLength / 1000} s
 </div>
 
 <style>

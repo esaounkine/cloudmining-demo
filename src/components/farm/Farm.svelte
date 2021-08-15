@@ -6,8 +6,8 @@
     thh: number
   ): { units: number; remainder: number } => {
     return {
-      units: Math.floor(thh / config.hashRatePerUnitThs),
-      remainder: Math.floor(thh % config.hashRatePerUnitThs),
+      units: Math.floor(thh / $config.hashRatePerUnitThs),
+      remainder: Math.floor(thh % $config.hashRatePerUnitThs),
     };
   };
 
