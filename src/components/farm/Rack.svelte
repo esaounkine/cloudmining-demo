@@ -45,8 +45,4 @@
   .totals {
     margin: 10px 0;
   }
-  .label {
-    font-weight: 600;
-    display: inline-block;
-  }
 </style>

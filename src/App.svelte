@@ -7,6 +7,7 @@
   import Farm from "./components/farm/Farm.svelte";
   import Period from "./components/period/Period.svelte";
   import Smartphone from "./components/smartphone/Smartphone.svelte";
+  import Bank from "./components/bank/Bank.svelte";
 
   const tick = () => {
     $state = reduce($state);
@@ -21,6 +22,8 @@
     <Smartphone width={100}>
       <Controls />
     </Smartphone>
+
+    <Bank />
   </div>
 
   <Period />
@@ -36,6 +39,12 @@
     padding: 1em;
     max-width: 240px;
     margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    main {
+      max-width: none;
+    }
   }
 
   :global(h1) {
@@ -57,9 +66,8 @@
     justify-content: space-evenly;
   }
 
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
+  :global(.label) {
+    font-weight: 600;
+    display: inline-block;
   }
 </style>
