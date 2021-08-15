@@ -46,7 +46,7 @@
     margin: 10px 0;
   }
   .label {
-    font-weight: bold;
+    font-weight: 600;
     display: inline-block;
   }
 </style>

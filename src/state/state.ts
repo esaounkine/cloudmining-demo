@@ -15,9 +15,8 @@ export const config: Config = {
 
 export const state: Writable<State> = writable({
   hashRate: {
-    purchased: 1,
+    purchased: 0,
     vested: 0,
-    total: 1,
   },
   startTime: new Date(),
   lastVest: new Date(),

@@ -11,7 +11,6 @@ interface State {
   hashRate: {
     purchased: number;
     vested: number;
-    total: number;
   };
   startTime: Date;
   timeElapsed: number;

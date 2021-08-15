@@ -17,14 +17,17 @@
   };
 </script>
 
-<Rack
-  machineType="purchased"
-  units={asics.purchased.units}
-  totalHashRate={$state.hashRate.purchased}
-/>
+<h1>Farm</h1>
+<div class="oneline">
+  <Rack
+    machineType="purchased"
+    units={asics.purchased.units}
+    totalHashRate={$state.hashRate.purchased}
+  />
 
-<Rack
-  machineType="vested"
-  units={asics.vested.units}
-  totalHashRate={$state.hashRate.vested}
-/>
+  <Rack
+    machineType="vested"
+    units={asics.vested.units}
+    totalHashRate={$state.hashRate.vested}
+  />
+</div>

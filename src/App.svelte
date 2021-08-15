@@ -17,9 +17,11 @@
 </script>
 
 <main>
-  <Smartphone width={100}>
-    <Controls />
-  </Smartphone>
+  <div class="oneline">
+    <Smartphone width={100}>
+      <Controls />
+    </Smartphone>
+  </div>
 
   <Period />
 
@@ -34,6 +36,25 @@
     padding: 1em;
     max-width: 240px;
     margin: 0 auto;
+  }
+
+  :global(h1) {
+    color: #ff3e00;
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: 300;
+  }
+
+  :global(h2) {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: 300;
+  }
+
+  :global(.oneline) {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
   }
 
   @media (min-width: 640px) {
