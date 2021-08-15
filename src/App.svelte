@@ -30,9 +30,7 @@
 
   <Farm />
 
-  {#if $state.debug}
-    <Stats />
-  {/if}
+  <Stats />
 </main>
 
 <style>

@@ -15,7 +15,7 @@
 </script>
 
 <button on:click={() => decrease(purchaseAmount)}>
-  -{purchaseAmount}
+  -{purchaseAmount} TH
 </button>
 
 <style>

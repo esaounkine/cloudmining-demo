@@ -8,7 +8,7 @@
   };
 </script>
 
-<button on:click={increase}>+{purchaseAmount}</button>
+<button on:click={increase}>+{purchaseAmount} TH</button>
 
 <style>
   button {
