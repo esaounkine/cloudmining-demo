@@ -18,7 +18,7 @@ const vest = (state: State) => {
     const reinvestAmountUsd = usdEarned * config.reinvestShare;
     const keepAmountUsd = usdEarned - reinvestAmountUsd;
     
-    state.hashRate.vested += reinvestAmountUsd / config.unitCostUsd;
+    state.hashRate.vested += reinvestAmountUsd / config.costPerThUsd;
 
     state.output.lastMonth = {
       thProduced,

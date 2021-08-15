@@ -8,7 +8,7 @@ export const config: Config = {
   rewardPerBlockBtc: 6.25, // TODO use a coefficient to predict reward adjustments
   // number is based on the assumption that a 100m TH/s pool requires 600 seconds to produce a block
   computationsPerBlockTh: 60000000000, // TODO replace with a more accurate adjusted number of computations required on average
-  unitCostUsd: 50, // TODO clarify
+  costPerThUsd: 50,
   reinvestShare: 0.5, // reinvest half of all earned money
   hashRatePerUnitThs: 1000,
 };

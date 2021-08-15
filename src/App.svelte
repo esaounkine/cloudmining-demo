@@ -10,14 +10,14 @@
 
   const tick = () => {
     $state = reduce($state);
-    setTimeout(tick, 100);
+    setTimeout(tick, 1000);
   };
 
   tick();
 </script>
 
 <main>
-  <Smartphone width={100} height={177}>
+  <Smartphone width={100}>
     <Controls />
   </Smartphone>
 

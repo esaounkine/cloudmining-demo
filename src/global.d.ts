@@ -30,7 +30,7 @@ interface Config {
   btcPriceUsd: number;
   rewardPerBlockBtc: number;
   computationsPerBlockTh: number;
-  unitCostUsd: number;
+  costPerThUsd: number;
   reinvestShare: number;
   hashRatePerUnitThs: number;
 }
