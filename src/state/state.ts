@@ -14,6 +14,7 @@ export const config: Config = {
 };
 
 export const state: Writable<State> = writable({
+  debug: false,
   hashRate: {
     purchased: 100,
     vested: 0,

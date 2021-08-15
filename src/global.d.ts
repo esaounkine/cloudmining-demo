@@ -8,6 +8,7 @@ interface FarmOutput {
 }
 
 interface State {
+  debug: boolean;
   hashRate: {
     purchased: number;
     vested: number;
