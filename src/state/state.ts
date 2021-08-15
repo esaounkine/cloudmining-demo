@@ -10,12 +10,12 @@ export const config: Config = {
   computationsPerBlockTh: 60000000000, // TODO replace with a more accurate adjusted number of computations required on average
   costPerThUsd: 50,
   reinvestShare: 0.5, // reinvest half of all earned money
-  hashRatePerUnitThs: 1000,
+  hashRatePerUnitThs: 100,
 };
 
 export const state: Writable<State> = writable({
   hashRate: {
-    purchased: 0,
+    purchased: 100,
     vested: 0,
   },
   startTime: new Date(),
