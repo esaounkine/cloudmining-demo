@@ -19,7 +19,7 @@ interface State {
   lastVest: Date;
   output: {
     total: FarmOutput;
-    lastMonth: FarmOutput;
+    months: FarmOutput[];
   };
 }
 

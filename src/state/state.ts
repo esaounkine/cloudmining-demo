@@ -30,11 +30,6 @@ export const state: Writable<State> = writable({
       btcRewarded: 0,
       usdEarned: 0,
     },
-    lastMonth: {
-      thProduced: 0,
-      blocksGuessed: 0,
-      btcRewarded: 0,
-      usdEarned: 0,
-    },
+    months: [],
   },
 });
