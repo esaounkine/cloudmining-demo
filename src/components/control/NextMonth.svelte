@@ -1,0 +1,12 @@
+<script lang="ts">
+  import { state, config } from "../../state/state";
+  import { reduce } from "../../state/reducers";
+
+  const enact = () => {
+    $state = reduce($state, $config);
+  };
+</script>
+
+<div>
+  <button on:click={enact}>Next month >></button>
+</div>

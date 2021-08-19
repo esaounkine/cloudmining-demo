@@ -20,9 +20,6 @@ export const state: Writable<State> = writable({
     vested: 0,
   },
   startTime: new Date(),
-  lastVest: new Date(),
-  timeElapsed: 0,
-  periods: 0,
   output: {
     total: {
       thProduced: 0,

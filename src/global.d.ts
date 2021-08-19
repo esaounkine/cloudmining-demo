@@ -14,9 +14,6 @@ interface State {
     vested: number;
   };
   startTime: Date;
-  timeElapsed: number;
-  periods: number;
-  lastVest: Date;
   output: {
     total: FarmOutput;
     months: FarmOutput[];

@@ -1,22 +1,14 @@
 <script lang="ts">
-  import { config, state } from "./state/state";
-  import { reduce } from "./state/reducers";
+  import { state } from "./state/state";
 
   import Stats from "./components/stats/Stats.svelte";
   import Controls from "./components/control/Controls.svelte";
   import Farm from "./components/farm/Farm.svelte";
-  import Period from "./components/period/Period.svelte";
   import Smartphone from "./components/smartphone/Smartphone.svelte";
   import Bank from "./components/bank/Bank.svelte";
   import Config from "./components/stats/Config.svelte";
-import Calendar from "./components/calendar/Calendar.svelte";
-
-  const tick = () => {
-    $state = reduce($state, $config);
-    setTimeout(tick, 1000);
-  };
-
-  tick();
+  import Calendar from "./components/calendar/Calendar.svelte";
+  import NextMonth from "./components/control/NextMonth.svelte";
 </script>
 
 <main>
@@ -28,10 +20,12 @@ import Calendar from "./components/calendar/Calendar.svelte";
     <Bank />
   </div>
 
-  <Period />
-  
+  <div class="oneline">
+    <NextMonth />
+  </div>
+
   <Calendar />
-  
+
   <Farm />
 
   <Config />

@@ -18,9 +18,6 @@ const addMonth = (state: State, month: FarmOutput): void => {
 };
 
 const vest = (state: State, config: Config) => {
-  state.lastVest = new Date();
-  state.periods = Math.round(state.timeElapsed / config.periodLength);
-
   const thProduced = calculateMonthlyTh(state, config);
   const blocksGuessed = thProduced / (1000 * config.computationsPerBlockPh);
   const btcRewarded = blocksGuessed * config.rewardPerBlockBtc;
@@ -47,10 +44,6 @@ const vest = (state: State, config: Config) => {
 };
 
 export const reduce = (state: State, config: Config): State => {
-  state.timeElapsed = Date.now() - state.startTime.getTime();
-  const timeSinceLastVest = Date.now() - state.lastVest.getTime();
-  if (timeSinceLastVest >= config.periodLength) {
-    vest(state, config);
-  }
+  vest(state, config);
   return state;
 };
