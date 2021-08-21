@@ -6,10 +6,16 @@ interface FarmOutput {
   blocksGuessed: number;
   rewardedBtc: number;
   vestedTh: number;
-  spentUsd: number;
   earnedUsd: number;
   keepAmountUsd: number;
   reinvestAmountUsd: number;
+  reductions: Reductions;
+}
+
+interface Reductions {
+  commission: number;
+  tax: number;
+  utilities: number;
 }
 
 interface HashRate {
@@ -27,13 +33,16 @@ interface State {
 }
 
 interface Config {
-  periodLength: number;
   secondsInMonth: number;
   kWtCostUsd: number;
   btcPriceUsd: number;
   rewardPerBlockBtc: number;
-  computationsPerBlockPh: number;
-  costPerThUsd: number;
+  computationsPerBlockEh: number;
+  unitCostPerThUsd: number;
   reinvestShare: number;
-  hashRatePerUnitThs: number;
+  commissionShare: number;
+  taxShare: number;
+  costPerKWUsd: number;
+  unitConsumptionKWh: number;
+  unitHashRateThs: number;
 }

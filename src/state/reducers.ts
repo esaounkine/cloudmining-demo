@@ -23,24 +23,50 @@ export const getTotals = (
   return state.output.months.reduce(
     (acc, curr: FarmOutput) => {
       return {
-        spentUsd: acc.spentUsd + curr.spentUsd,
-        earnedUsd: acc.earnedUsd + curr.earnedUsd,
+        spentUsd: acc.spentUsd + 0,
+        earnedUsd: acc.earnedUsd + curr.keepAmountUsd,
       };
     },
     { spentUsd: 0, earnedUsd: 0 }
   );
 };
 
+const calculateElectricityCostPerThUsd = (config: Config) => {
+  const hoursPerMonth = 24 * 30;
+  const totalConsumptionKW = config.unitConsumptionKWh * hoursPerMonth;
+  const secondsPerMonth = 60 * 60 * hoursPerMonth;
+  const totalHashRateTh = config.unitHashRateThs * secondsPerMonth;
+  return totalConsumptionKW * config.costPerKWUsd / totalHashRateTh;
+};
+
+const calculateReductions = (
+  earnedUsd: number,
+  producedTh: number,
+  config: Config
+): Reductions => {
+  return {
+    commission: earnedUsd * config.commissionShare,
+    tax: earnedUsd * config.taxShare,
+    utilities: producedTh * calculateElectricityCostPerThUsd(config),
+  };
+};
+
 const vest = (state: State, config: Config) => {
   const producedTh = calculateMonthlyTh(state, config);
-  const blocksGuessed = producedTh / (1000 * config.computationsPerBlockPh);
+
+  const blocksGuessed = producedTh / (config.computationsPerBlockEh * 1000000);
   const rewardedBtc = blocksGuessed * config.rewardPerBlockBtc;
   const earnedUsd = Math.round(rewardedBtc * config.btcPriceUsd);
 
-  const reinvestAmountUsd = earnedUsd * config.reinvestShare;
-  const keepAmountUsd = earnedUsd - reinvestAmountUsd;
+  const reductions = calculateReductions(earnedUsd, producedTh, config);
+  const reductionsUsd =
+    reductions.commission + reductions.tax + reductions.utilities;
+  const remainderUsd = earnedUsd - reductionsUsd;
 
-  const vestedTh = reinvestAmountUsd / config.costPerThUsd;
+  const reinvestAmountUsd = remainderUsd * config.reinvestShare;
+  const keepAmountUsd = remainderUsd - reinvestAmountUsd;
+
+  const vestedTh = reinvestAmountUsd / config.unitCostPerThUsd;
   state.hashRate.vested += vestedTh;
 
   addMonth(state, {
@@ -52,10 +78,10 @@ const vest = (state: State, config: Config) => {
     blocksGuessed,
     rewardedBtc,
     vestedTh,
-    spentUsd: reinvestAmountUsd, // TODO rethink how we calculate the amonut spent every month
     earnedUsd,
-    keepAmountUsd,
+    reductions,
     reinvestAmountUsd,
+    keepAmountUsd,
   });
 };
 

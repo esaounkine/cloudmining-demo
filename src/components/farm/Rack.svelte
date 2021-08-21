@@ -5,7 +5,7 @@
   export let units: number;
   export let totalHashRate: number;
 
-  $: totalValue = totalHashRate * $config.costPerThUsd;
+  $: totalValue = totalHashRate * $config.unitCostPerThUsd;
 
   const machineTypeLabel = `${machineType
     .charAt(0)

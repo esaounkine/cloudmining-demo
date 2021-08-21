@@ -9,22 +9,18 @@
   <span class="note">this number will change randomly over time</span>
 </div>
 <div>
-  <span class="label">Computations per block (PetaHash):</span>
-  <input type="number" bind:value={$config.computationsPerBlockPh} />
+  <span class="label">Computations per block (ExaHash):</span>
+  <input type="number" bind:value={$config.computationsPerBlockEh} />
   <span class="note">this number with increase over time</span>
 </div>
 <div>
   <span class="label">Reward per block (BTC):</span>
-  <input type="number" bind:value={$config.rewardPerBlockBtc} />
+  <input type="number" step="0.01" bind:value={$config.rewardPerBlockBtc} />
   <span class="note">this number will decrease over time</span>
 </div>
 <div>
   <span class="label">Reinvest into the infrastructure:</span>
-  <input type="number" bind:value={$config.reinvestShare} />
-</div>
-<div>
-  <span class="label">Month duration:</span>
-  {$config.periodLength / 1000} s
+  <input type="number" step="0.1" bind:value={$config.reinvestShare} />
 </div>
 
 <style>
