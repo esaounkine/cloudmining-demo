@@ -17,30 +17,46 @@ const addMonth = (state: State, month: FarmOutput): void => {
   state.output.months = [month, ...state.output.months];
 };
 
+export const getTotals = (
+  state: State
+): { earnedUsd: number; spentUsd: number } => {
+  return state.output.months.reduce(
+    (acc, curr: FarmOutput) => {
+      return {
+        spentUsd: acc.spentUsd + curr.spentUsd,
+        earnedUsd: acc.earnedUsd + curr.earnedUsd,
+      };
+    },
+    { spentUsd: 0, earnedUsd: 0 }
+  );
+};
+
 const vest = (state: State, config: Config) => {
-  const thProduced = calculateMonthlyTh(state, config);
-  const blocksGuessed = thProduced / (1000 * config.computationsPerBlockPh);
-  const btcRewarded = blocksGuessed * config.rewardPerBlockBtc;
-  const usdEarned = Math.round(btcRewarded * config.btcPriceUsd);
+  const producedTh = calculateMonthlyTh(state, config);
+  const blocksGuessed = producedTh / (1000 * config.computationsPerBlockPh);
+  const rewardedBtc = blocksGuessed * config.rewardPerBlockBtc;
+  const earnedUsd = Math.round(rewardedBtc * config.btcPriceUsd);
 
-  const reinvestAmountUsd = usdEarned * config.reinvestShare;
-  const keepAmountUsd = usdEarned - reinvestAmountUsd;
+  const reinvestAmountUsd = earnedUsd * config.reinvestShare;
+  const keepAmountUsd = earnedUsd - reinvestAmountUsd;
 
-  state.hashRate.vested += reinvestAmountUsd / config.costPerThUsd;
+  const vestedTh = reinvestAmountUsd / config.costPerThUsd;
+  state.hashRate.vested += vestedTh;
 
   addMonth(state, {
-    thProduced,
+    hashRate: {
+      purchased: state.hashRate.purchased,
+      vested: state.hashRate.vested,
+    },
+    producedTh,
     blocksGuessed,
-    btcRewarded,
-    usdEarned,
+    rewardedBtc,
+    vestedTh,
+    spentUsd: reinvestAmountUsd, // TODO rethink how we calculate the amonut spent every month
+    earnedUsd,
+    keepAmountUsd,
+    reinvestAmountUsd,
   });
-
-  state.output.total = {
-    thProduced: state.output.total.thProduced + thProduced,
-    blocksGuessed: state.output.total.blocksGuessed + blocksGuessed,
-    btcRewarded: state.output.total.btcRewarded + btcRewarded,
-    usdEarned: state.output.total.usdEarned + keepAmountUsd,
-  };
 };
 
 export const reduce = (state: State, config: Config): State => {

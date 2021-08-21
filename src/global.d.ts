@@ -1,21 +1,27 @@
 /// <reference types="svelte" />
 
 interface FarmOutput {
-  thProduced: number;
+  hashRate: HashRate;
+  producedTh: number;
   blocksGuessed: number;
-  btcRewarded: number;
-  usdEarned: number;
+  rewardedBtc: number;
+  vestedTh: number;
+  spentUsd: number;
+  earnedUsd: number;
+  keepAmountUsd: number;
+  reinvestAmountUsd: number;
+}
+
+interface HashRate {
+  purchased: number;
+  vested: number;
 }
 
 interface State {
   debug: boolean;
-  hashRate: {
-    purchased: number;
-    vested: number;
-  };
+  hashRate: HashRate;
   startTime: Date;
   output: {
-    total: FarmOutput;
     months: FarmOutput[];
   };
 }
