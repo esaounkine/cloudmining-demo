@@ -1,5 +1,5 @@
 <script lang="ts">
-import { formatNumber } from "../../shared/util";
+  import { formatNumber } from "../../shared/util";
 
   import { getTotals } from "../../state/reducers";
   import { state } from "../../state/state";
@@ -8,6 +8,8 @@ import { formatNumber } from "../../shared/util";
 </script>
 
 <div>
+  <i class="fa fa-bank" />
+
   <div class="oneline">
     <div class="label">Spent:</div>
     <div class="negative">
