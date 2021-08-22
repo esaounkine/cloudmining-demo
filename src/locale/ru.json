@@ -1,0 +1,47 @@
+{
+  "bank": {
+    "earned": "Прибыль",
+    "spent": "Расходы"
+  },
+  "calendar": {
+    "title": "Календарь",
+    "no-vesting": "Пока что нет доходов",
+    "next-month": "Следующий месяц >>"
+  },
+  "farm": {
+    "title": "Ваша ферма",
+    "hash-rate": "Хеш Рейт",
+    "value": "Стоимость",
+    "type": {
+      "purchased": "Куплено",
+      "vested": "Реинвестировано"
+    }
+  },
+  "units": {
+    "ths": "TH/s",
+    "th": "TH",
+    "usd": "USD",
+    "btc": "BTC"
+  },
+  "month": {
+    "performance": "Хешрейт",
+    "produced-th": "Операций",
+    "blocks-guessed": "Добыто блоков",
+    "rewarded": "Награда",
+    "earned": "Тотал дохода",
+    "vested-th": "Реинвестиции",
+    "reinvest-amount": "В реинвест",
+    "keep-amount": "В банк",
+    "reductions": "Отчисления"
+  },
+  "stats": {
+    "title": "Статсы"
+  },
+  "config": {
+    "title": "Конфигурация",
+    "btc-price": "Стоимость биткойна (US$)",
+    "computations-per-block-eh": "Вычислений на блок (ExaHash)",
+    "reward-per-block": "Награда за блок (BTC)",
+    "reinvest-share": "Процент реинвестиции от доходов"
+  }
+}

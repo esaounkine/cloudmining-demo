@@ -11,7 +11,7 @@
   import NextMonth from "./components/control/NextMonth.svelte";
   import { initI18n } from "./i18n";
 
-  initI18n();
+  initI18n("en");
 </script>
 
 <main>
