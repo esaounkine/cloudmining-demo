@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { _ } from "svelte-i18n";
+
   import { state, config } from "../../state/state";
   import Rack from "./Rack.svelte";
 
@@ -17,7 +19,7 @@
   };
 </script>
 
-<h1>Farm</h1>
+<h1>{$_("farm.title")}</h1>
 <div class="oneline">
   <Rack
     machineType="purchased"

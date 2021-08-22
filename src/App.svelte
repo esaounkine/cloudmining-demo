@@ -9,6 +9,9 @@
   import Config from "./components/stats/Config.svelte";
   import Calendar from "./components/calendar/Calendar.svelte";
   import NextMonth from "./components/control/NextMonth.svelte";
+  import { initI18n } from "./i18n";
+
+  initI18n();
 </script>
 
 <main>

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { _ } from "svelte-i18n";
+
   import { formatNumber } from "../../shared/util";
   import { config } from "../../state/state";
 
@@ -8,20 +10,18 @@
 
   $: totalValue = totalHashRate * $config.unitCostPerThUsd;
 
-  const machineTypeLabel = `${machineType
-    .charAt(0)
-    .toUpperCase()}${machineType.slice(1)}`;
+  const machineTypeLabel = $_(`farm.type.${machineType}`);
 </script>
 
 <div class="farm {machineType}">
   <h2>{machineTypeLabel}</h2>
   <div class="totals">
     <div>
-      <div class="label">Hash Rate:</div>
-      {formatNumber(totalHashRate)} TH/s
+      <div class="label">{$_("farm.hash-rate")}:</div>
+      {formatNumber(totalHashRate)} {$_("units.ths")}
     </div>
     <div>
-      <div class="label">Value:</div>
+      <div class="label">{$_("farm.value")}:</div>
       ${formatNumber(totalValue, 0)}
     </div>
   </div>

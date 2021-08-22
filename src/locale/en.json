@@ -1,0 +1,47 @@
+{
+  "bank": {
+    "earned": "Earned",
+    "spent": "Spent"
+  },
+  "calendar": {
+    "title": "Vesting calendar",
+    "no-vesting": "No vesting yet",
+    "next-month": "Next month >>"
+  },
+  "farm": {
+    "title": "Farm",
+    "hash-rate": "Hash Rate",
+    "value": "Value",
+    "type": {
+      "purchased": "Purchased",
+      "vested": "Vested"
+    }
+  },
+  "units": {
+    "ths": "TH/s",
+    "th": "TH",
+    "usd": "USD",
+    "btc": "BTC"
+  },
+  "month": {
+    "performance": "Performance",
+    "produced-th": "Produced",
+    "blocks-guessed": "Blocks",
+    "rewarded": "Rewarded",
+    "earned": "Earned",
+    "vested-th": "Vested TH",
+    "reinvest-amount": "Reinvest amount",
+    "keep-amount": "Keep Amount",
+    "reductions": "Reductions"
+  },
+  "stats": {
+    "title": "Stats"
+  },
+  "config": {
+    "title": "Config",
+    "btc-price": "BTC price (US$)",
+    "computations-per-block-eh": "Computations per block (ExaHash)",
+    "reward-per-block": "Reward per block (BTC)",
+    "reinvest-share": "Reinvest into the infrastructure"
+  }
+}

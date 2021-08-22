@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { _ } from "svelte-i18n";
+
   import { formatNumber } from "../../shared/util";
 
   export let state: any;
@@ -8,61 +10,61 @@
 <div class="container month ">
   <h3>{index}</h3>
   <div>
-    <span class="left"> Performance: </span>
+    <span class="left"> {$_("month.performance")}: </span>
     <span class="right">
-      {formatNumber(state.hashRate.purchased + state.hashRate.vested)} TH/s
+      {formatNumber(state.hashRate.purchased + state.hashRate.vested)} {$_("units.ths")}
     </span>
   </div>
   <div>
-    <span class="left"> Produced: </span>
+    <span class="left"> {$_("month.produced-th")}: </span>
     <span class="right digital">
-      {formatNumber(state.producedTh, 0)} TH
+      {formatNumber(state.producedTh, 0)} {$_("units.th")}
     </span>
   </div>
   <div>
-    <span class="left"> Blocks: </span>
+    <span class="left"> {$_("month.blocks-guessed")}: </span>
     <span class="right digital">
       {formatNumber(state.blocksGuessed, 10)}
     </span>
   </div>
   <div>
-    <span class="left"> Rewarded: </span>
+    <span class="left"> {$_("month.rewarded")}: </span>
     <span class="right positive">
-      {formatNumber(state.rewardedBtc)} BTC
+      {formatNumber(state.rewardedBtc)} {$_("units.btc")}
     </span>
   </div>
   <div>
-    <span class="left"> Earned: </span>
+    <span class="left"> {$_("month.earned")}: </span>
     <span class="right positive">
-      ${formatNumber(state.earnedUsd)}
+      {formatNumber(state.earnedUsd)} {$_("units.usd")}
     </span>
   </div>
   <div>
-    <span class="left"> Vested TH: </span>
+    <span class="left"> {$_("month.vested-th")}: </span>
     <span class="right positive">
-      + {formatNumber(state.vestedTh)} TH
+      + {formatNumber(state.vestedTh)} {$_("units.th")}
     </span>
   </div>
   <div>
-    <span class="left"> Reinvest amount: </span>
+    <span class="left"> {$_("month.reinvest-amount")}: </span>
     <span class="right positive">
-      ${formatNumber(state.reinvestAmountUsd)}
+      {formatNumber(state.reinvestAmountUsd)} {$_("units.usd")}
     </span>
   </div>
   <div>
-    <span class="left"> Keep Amount: </span>
+    <span class="left"> {$_("month.keep-amount")}: </span>
     <span class="right positive">
-      ${formatNumber(state.keepAmountUsd)}
+      {formatNumber(state.keepAmountUsd)} {$_("units.usd")}
     </span>
   </div>
   <div>
-    <span class="left"> Reductions: </span>
+    <span class="left"> {$_("month.reductions")}: </span>
     <span class="right negative">
-      ${formatNumber(
+      {formatNumber(
         state.reductions.commission +
           state.reductions.tax +
           state.reductions.utilities
-      )}
+      )} {$_("units.usd")}
     </span>
   </div>
 </div>

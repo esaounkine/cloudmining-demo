@@ -1,6 +1,7 @@
 <script lang="ts">
   import { state, config } from "../../state/state";
   import { reduce } from "../../state/reducers";
+  import { _ } from "svelte-i18n";
 
   const enact = () => {
     const res = reduce($state, $config);
@@ -10,5 +11,5 @@
 </script>
 
 <div>
-  <button on:click={enact}>Next month >></button>
+  <button on:click={enact}>{$_("calendar.next-month")}</button>
 </div>

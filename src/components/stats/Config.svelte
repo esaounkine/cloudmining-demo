@@ -1,25 +1,24 @@
 <script lang="ts">
+  import { _ } from "svelte-i18n";
+
   import { config } from "../../state/state";
 </script>
 
-<h2>Config</h2>
+<h2>{$_("config.title")}</h2>
 <div>
-  <span class="label">BTC price (US$):</span>
+  <span class="label">{$_("config.btc-price")}:</span>
   <input type="number" bind:value={$config.btcPriceUsd} />
-  <span class="note">this number will change randomly over time</span>
 </div>
 <div>
-  <span class="label">Computations per block (ExaHash):</span>
+  <span class="label">{$_("config.computations-per-block-eh")}:</span>
   <input type="number" bind:value={$config.computationsPerBlockEh} />
-  <span class="note">this number with increase over time</span>
 </div>
 <div>
-  <span class="label">Reward per block (BTC):</span>
+  <span class="label">{$_("config.reward-per-block")}:</span>
   <input type="number" step="0.01" bind:value={$config.rewardPerBlockBtc} />
-  <span class="note">this number will decrease over time</span>
 </div>
 <div>
-  <span class="label">Reinvest into the infrastructure:</span>
+  <span class="label">{$_("config.reinvest-share")}:</span>
   <input type="number" step="0.1" bind:value={$config.reinvestShare} />
 </div>
 

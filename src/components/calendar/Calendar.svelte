@@ -1,12 +1,14 @@
 <script lang="ts">
+  import { _ } from "svelte-i18n";
+
   import { state } from "../../state/state";
   import Month from "./Month.svelte";
 </script>
 
-<h2>Vesting calendar</h2>
+<h2>{$_("calendar.title")}</h2>
 <calendar>
   {#if !$state.output.months.length}
-    <i>No vesting yet</i>
+    <i>{$_("calendar.no-vesting")}</i>
   {/if}
 
   {#each $state.output.months as month, i}
