@@ -21,6 +21,7 @@
     position: relative;
     margin: auto;
     border: black solid;
+    margin: 0;
   }
 
   /* The screen (or content) of the device */

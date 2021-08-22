@@ -23,10 +23,4 @@ import { formatNumber } from "../../shared/util";
 </div>
 
 <style>
-  .negative {
-    color: red;
-  }
-  .positive {
-    color: green;
-  }
 </style>

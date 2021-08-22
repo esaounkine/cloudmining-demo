@@ -91,8 +91,7 @@ const vest = (state: State, config: Config) => {
   const keepAmountUsd = remainderUsd - reinvestAmountUsd;
 
   const vestedTh = reinvestAmountUsd / config.unitCostPerThUsd;
-  state.hashRate.vested += vestedTh;
-
+  
   addMonth(state, {
     hashRate: {
       purchased: state.hashRate.purchased,
@@ -112,6 +111,9 @@ const vest = (state: State, config: Config) => {
       btcPriceUsd: config.btcPriceUsd,
     },
   });
+
+  // update the state to add the vested hashrate
+  state.hashRate.vested += vestedTh;
 
   // update the config with the adjusted values
   config.rewardPerBlockBtc = applyCoefficient(

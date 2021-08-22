@@ -20,7 +20,7 @@
     <Bank />
   </div>
 
-  <div class="oneline">
+  <div class="row">
     <NextMonth />
   </div>
 
@@ -65,11 +65,31 @@
   :global(.oneline) {
     display: flex;
     flex-flow: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
   }
 
   :global(.label) {
     font-weight: 600;
     display: inline-block;
+  }
+
+  :global(.row) {
+    margin: 20px 0;
+  }
+
+  :global(.negative) {
+    color: red;
+  }
+
+  :global(.positive) {
+    color: green;
+  }
+
+  :global(.digital) {
+    color: darkblue;
+  }
+
+  :global(.neutral) {
+    color: darkgray;
   }
 </style>

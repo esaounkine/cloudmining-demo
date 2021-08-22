@@ -10,7 +10,7 @@
   {/if}
 
   {#each $state.output.months as month, i}
-    <Month state={month}>{$state.output.months.length - i}</Month>
+    <Month state={month} index={$state.output.months.length - i} />
   {/each}
 </calendar>
 
