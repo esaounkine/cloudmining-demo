@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { formatNumber } from "../../shared/util";
   import { config } from "../../state/state";
 
   export let machineType: "purchased" | "vested";
@@ -17,11 +18,11 @@
   <div class="totals">
     <div>
       <div class="label">Hash Rate:</div>
-      {totalHashRate} TH/s
+      {formatNumber(totalHashRate)} TH/s
     </div>
     <div>
       <div class="label">Value:</div>
-      ${totalValue}
+      ${formatNumber(totalValue, 0)}
     </div>
   </div>
   <div>

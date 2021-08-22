@@ -1,4 +1,6 @@
 <script lang="ts">
+import { formatNumber } from "../../shared/util";
+
   import { getTotals } from "../../state/reducers";
   import { state } from "../../state/state";
 
@@ -9,13 +11,13 @@
   <div class="oneline">
     <div class="label">Spent:</div>
     <div class="negative">
-      ${total.spentUsd}
+      ${formatNumber(total.spentUsd, 0)}
     </div>
   </div>
   <div class="oneline">
     <div class="label">Earned:</div>
     <div class="positive">
-      ${total.earnedUsd}
+      ${formatNumber(total.earnedUsd, 0)}
     </div>
   </div>
 </div>
