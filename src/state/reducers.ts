@@ -36,7 +36,11 @@ const calculateElectricityCostPerThUsd = (config: Config) => {
   const totalConsumptionKW = config.unitConsumptionKWh * hoursPerMonth;
   const secondsPerMonth = 60 * 60 * hoursPerMonth;
   const totalHashRateTh = config.unitHashRateThs * secondsPerMonth;
-  return totalConsumptionKW * config.costPerKWUsd / totalHashRateTh;
+  return (totalConsumptionKW * config.costPerKWUsd) / totalHashRateTh;
+};
+
+const withValue = <T, R>(value: T, fn: (val: T) => R): R => {
+  return fn(value);
 };
 
 const calculateReductions = (
@@ -44,11 +48,23 @@ const calculateReductions = (
   producedTh: number,
   config: Config
 ): Reductions => {
-  return {
-    commission: earnedUsd * config.commissionShare,
-    tax: earnedUsd * config.taxShare,
-    utilities: producedTh * calculateElectricityCostPerThUsd(config),
-  };
+  // TODO figure out what's the order of application of the commissions
+  return withValue(
+    producedTh * calculateElectricityCostPerThUsd(config),
+    (utilities) => {
+      const minusElectricity = earnedUsd - utilities;
+      return withValue(
+        minusElectricity * config.commissionShare,
+        (commission) => {
+          const minusCommission = minusElectricity - commission;
+          return withValue(minusCommission * config.taxShare, (tax) => {
+            const minusTax = minusCommission - tax;
+            return { commission, tax, utilities };
+          });
+        }
+      );
+    }
+  );
 };
 
 const vest = (state: State, config: Config) => {
