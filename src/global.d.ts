@@ -10,6 +10,11 @@ interface FarmOutput {
   keepAmountUsd: number;
   reinvestAmountUsd: number;
   reductions: Reductions;
+  adjusted: {
+    rewardPerBlockBtc: number;
+    computationsPerBlock: number;
+    btcPriceUsd: number;
+  };
 }
 
 interface Reductions {

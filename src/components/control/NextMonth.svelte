@@ -3,7 +3,9 @@
   import { reduce } from "../../state/reducers";
 
   const enact = () => {
-    $state = reduce($state, $config);
+    const res = reduce($state, $config);
+    $state = res.state;
+    $config = res.config;
   };
 </script>
 

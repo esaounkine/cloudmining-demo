@@ -67,11 +67,19 @@ const calculateReductions = (
   );
 };
 
+const applyCoefficient = (num: number, period: number, step: number) => {
+  return num * (1 + period * step);
+};
+
 const vest = (state: State, config: Config) => {
+  const period = state.output.months.length + 1;
+
   const producedTh = calculateMonthlyTh(state, config);
 
   const blocksGuessed = producedTh / (config.computationsPerBlockEh * 1000000);
+
   const rewardedBtc = blocksGuessed * config.rewardPerBlockBtc;
+
   const earnedUsd = Math.round(rewardedBtc * config.btcPriceUsd);
 
   const reductions = calculateReductions(earnedUsd, producedTh, config);
@@ -98,10 +106,36 @@ const vest = (state: State, config: Config) => {
     reductions,
     reinvestAmountUsd,
     keepAmountUsd,
+    adjusted: {
+      rewardPerBlockBtc: config.rewardPerBlockBtc,
+      computationsPerBlock: config.computationsPerBlockEh,
+      btcPriceUsd: config.btcPriceUsd,
+    },
   });
+
+  // update the config with the adjusted values
+  config.rewardPerBlockBtc = applyCoefficient(
+    config.rewardPerBlockBtc,
+    period,
+    -0.001 // block reward reduces by 0.1% every month
+  );
+  config.computationsPerBlockEh =
+    applyCoefficient(
+      config.computationsPerBlockEh * 1000000,
+      period,
+      0.005 // computations per block grow by 0.5% every month
+    ) / 1000000;
+  config.btcPriceUsd = applyCoefficient(
+    config.btcPriceUsd,
+    period,
+    0.005 // btc price grows by 0.5% every month
+  );
 };
 
-export const reduce = (state: State, config: Config): State => {
+export const reduce = (
+  state: State,
+  config: Config
+): { state: State; config: Config } => {
   vest(state, config);
-  return state;
+  return { state, config };
 };
