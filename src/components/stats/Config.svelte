@@ -23,8 +23,4 @@
 </div>
 
 <style>
-  .note {
-    font-style: italic;
-    color: grey;
-  }
 </style>

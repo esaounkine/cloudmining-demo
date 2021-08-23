@@ -10,8 +10,8 @@ export const config: Writable<Config> = writable({
   unitCostPerThUsd: 50,
   reinvestShare: 0.5, // reinvest half of all earned money
   costPerKWUsd: 0.05,
-  unitConsumptionKWh: 2.3,
-  unitHashRateThs: 30,
+  unitConsumptionKWh: 3.2,
+  unitHashRateThs: 100,
   taxShare: 0.06,
   commissionShare: 0.2,
 });
