@@ -42,6 +42,11 @@
     "btc-price": "Стоимость биткойна (US$)",
     "computations-per-block-eh": "Вычислений на блок (ExaHash)",
     "reward-per-block": "Награда за блок (BTC)",
-    "reinvest-share": "Процент реинвестиции от доходов"
+    "reinvest-share": "Процент реинвестиции от доходов",
+    "kwt-cost": "Стоимость kWt энергии (US$)",
+    "commission-share": "Процент комиссии",
+    "tax-share": "Процент налога",
+    "unit-hashrate": "Хешрейт устройства (TH/s)",
+    "unit-consumption": "Потребление энергии устройством (КВ/ч)"
   }
 }

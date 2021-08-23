@@ -4,16 +4,16 @@ export const config: Writable<Config> = writable({
   secondsInMonth: 60 * 60 * 24 * 30,
   kWtCostUsd: 0.05,
   btcPriceUsd: 35000, // TODO fetch live BTC price
-  rewardPerBlockBtc: 6.25, // TODO use a coefficient to predict reward adjustments
+  rewardPerBlockBtc: 6.25,
   // number is based on the assumption that a 100m TH/s pool requires 600 seconds to produce a block
-  computationsPerBlockEh: 60000, // TODO replace with a more accurate adjusted number of computations required on average
+  computationsPerBlockEh: 60000,
   unitCostPerThUsd: 50,
-  reinvestShare: 0.5, // reinvest half of all earned money
+  reinvestShare: 0.5,
   costPerKWUsd: 0.05,
-  unitConsumptionKWh: 3.2,
-  unitHashRateThs: 100,
-  taxShare: 0.06,
-  commissionShare: 0.2,
+  unitConsumptionKWh: 2.3,
+  unitHashRateThs: 30,
+  taxShare: 0,
+  commissionShare: 0.05,
 });
 
 export const state: Writable<State> = writable({

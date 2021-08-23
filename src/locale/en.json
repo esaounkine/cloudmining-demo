@@ -42,6 +42,11 @@
     "btc-price": "BTC price (US$)",
     "computations-per-block-eh": "Computations per block (ExaHash)",
     "reward-per-block": "Reward per block (BTC)",
-    "reinvest-share": "Reinvest into the infrastructure"
+    "reinvest-share": "Reinvest into the infrastructure %",
+    "kwt-cost": "kWt cost (USD)",
+    "commission-share": "Commission %",
+    "tax-share": "Tax %",
+    "unit-hashrate": "Unit hashrate (TH/s)",
+    "unit-consumption": "Unit energy consumption (kWh)"
   }
 }

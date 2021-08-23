@@ -21,6 +21,26 @@
   <span class="label">{$_("config.reinvest-share")}:</span>
   <input type="number" step="0.1" bind:value={$config.reinvestShare} />
 </div>
+<div>
+  <span class="label">{$_("config.kwt-cost")}:</span>
+  <input type="number" step="0.1" bind:value={$config.kWtCostUsd} />
+</div>
+<div>
+  <span class="label">{$_("config.commission-share")}:</span>
+  <input type="number" step="0.1" bind:value={$config.commissionShare} />
+</div>
+<div>
+  <span class="label">{$_("config.tax-share")}:</span>
+  <input type="number" step="0.1" bind:value={$config.taxShare} />
+</div>
+<div>
+  <span class="label">{$_("config.unit-hashrate")}:</span>
+  <input type="number" step="0.1" bind:value={$config.unitHashRateThs} />
+</div>
+<div>
+  <span class="label">{$_("config.unit-consumption")}:</span>
+  <input type="number" step="0.1" bind:value={$config.unitConsumptionKWh} />
+</div>
 
 <style>
 </style>
